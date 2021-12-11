@@ -1,4 +1,4 @@
-package ie.wit.mob2_pb
+package ie.wit.mob2_pb.activites
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import ie.wit.mob2_pb.R
 import ie.wit.mob2_pb.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activites.AddFlower">
+
+    <Button
+        android:id="@+id/button_add_flower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="150dp"
+        android:text="@string/button_add_new_flower"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.955" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/add_flower_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/prompt_add_flower_name"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:selectAllOnFocus="true"
+            android:text="@string/add_flower_name" />
+
+        <EditText
+            android:id="@+id/add_flower_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/prompt_add_flower_family"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:selectAllOnFocus="true"
+            android:text="@string/add_flower_family" />
+
+        <EditText
+            android:id="@+id/add_flower_season"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/prompt_add_flower_season"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:selectAllOnFocus="true"
+            android:text="@string/add_flower_season" />
+
+        <EditText
+            android:id="@+id/add_flower_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/prompt_add_flower_description"
+            android:ems="10"
+            android:hint="@string/prompt_add_flower_description"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:selectAllOnFocus="true"
+            android:text="@string/add_flower_description" />
+
+        <EditText
+            android:id="@+id/add_flower_care"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/prompt_add_flower_care"
+            android:ems="10"
+            android:hint="@string/prompt_add_flower_care"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:selectAllOnFocus="true"
+            android:text="@string/add_flower_care" />
+
+        <EditText
+            android:id="@+id/add_flower_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="@string/button_add_flower_photo" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/button_clear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button_add_flower"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.958" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="262dp"
+        android:layout_height="194dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="141dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintBottom_toTopOf="@+id/button_add_flower"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
