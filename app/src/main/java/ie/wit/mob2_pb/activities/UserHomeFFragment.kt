@@ -1,4 +1,4 @@
-package ie.wit.mob2_pb.activites
+package ie.wit.mob2_pb.activities
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,7 @@ import ie.wit.mob2_pb.databinding.UserHomeBinding
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class UserHome : Fragment() {
+class UserHomeFFragment : Fragment() {
 
     private var _binding: UserHomeBinding? = null
 
