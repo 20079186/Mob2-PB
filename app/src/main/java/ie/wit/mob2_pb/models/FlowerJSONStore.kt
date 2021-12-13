@@ -1,19 +1,26 @@
 package ie.wit.mob2_pb.models
 import android.content.Context
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import android.net.Uri
+import com.google.gson.*
 import com.google.gson.reflect.TypeToken
 import ie.wit.mob2_pb.helpers.*
 import timber.log.Timber
+import java.lang.reflect.Type
 import java.util.*
 
 val JSON_FILE = "flowers.json"
-val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
-val listType = object : TypeToken<java.util.ArrayList<FlowerModel>>(){}.type
+val gsonBuilder: Gson = GsonBuilder().setPrettyPrinting().registerTypeAdapter(Uri::class.java, FlowerJSONStore.UriParser()).create()
+val listType = object : TypeToken<ArrayList<FlowerModel>>(){}.type
 
 class FlowerJSONStore(private val context: Context) : FlowerStore {
 
     var flowers = mutableListOf<FlowerModel>()
+    init {
+        if (exists(context, JSON_FILE)) {
+            deserialize()
+        }
+    }
+
 
     fun generateRandomId(): Long {
         return Random().nextLong()
@@ -28,16 +35,17 @@ class FlowerJSONStore(private val context: Context) : FlowerStore {
         flower.id = generateRandomId()
         flowers.add(flower)
         logAll()
+        serialize()
     }
 
-    override fun findF(id: Long) : FlowerModel? {
-    var foundFlower: FlowerModel? = flowers.find { p -> p.id == id }
+    override fun findF(id: Long): FlowerModel? {
+        var foundFlower: FlowerModel? = flowers.find { p -> p.id == id }
         return foundFlower
     }
 
     override fun update(flower: FlowerModel) {
         var foundFlower = findF(flower.id)
-        if(foundFlower !=null){
+        if (foundFlower != null) {
             foundFlower.name = flower.name
             foundFlower.family = flower.family
             foundFlower.season = flower.season
@@ -54,15 +62,35 @@ class FlowerJSONStore(private val context: Context) : FlowerStore {
     }
 
     private fun logAll() {
-        flowers.forEach{Timber.i("$it")}
+        flowers.forEach { Timber.i("$it") }
     }
 
     private fun serialize() {
         val jsonString = gsonBuilder.toJson(flowers, listType)
-        write(JSON_FILE, jsonString)
+        write(context, JSON_FILE, jsonString)
     }
+
     private fun deserialize() {
-        val jsonString = read(JSON_FILE)
-        flowers = Gson().fromJson(jsonString, listType)
+        val jsonString = read(context, JSON_FILE)
+        flowers = gsonBuilder.fromJson(jsonString, listType)
+    }
+
+    class UriParser : JsonDeserializer<Uri>, JsonSerializer<Uri> {
+        override fun deserialize(
+            json: JsonElement?,
+            typeOfT: Type?,
+            context: JsonDeserializationContext?
+        ): Uri {
+            return Uri.parse(json?.asString)
+        }
+
+        override fun serialize(
+            src: Uri?,
+            typeOfSrc: Type?,
+            context: JsonSerializationContext?
+        ): JsonElement {
+            return JsonPrimitive(src.toString())
+        }
+
     }
 }

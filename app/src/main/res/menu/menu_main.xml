@@ -4,13 +4,15 @@
     tools:context="ie.wit.mob2_pb.activities.MainActivity">
     <item
         android:id="@+id/item_add"
-        android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/add_flower"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_action_name"
+        android:title="@string/menu_add_flower"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+
 
 </menu>

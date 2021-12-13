@@ -37,6 +37,8 @@ class FlowerMStore: FlowerStore {
             foundFlower.season = flower.season
             foundFlower.description = flower.description
             foundFlower.care = flower.care
+            foundFlower.image =flower.image
+            logAll()
         }
     }
 

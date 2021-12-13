@@ -12,15 +12,17 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ie.wit.mob2_pb.R
 import ie.wit.mob2_pb.databinding.ActivityMainBinding
 import ie.wit.mob2_pb.main.MainApp
 import ie.wit.mob2_pb.models.FlowerModel
+import ie.wit.mob2_pb.adapters.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FlowerListener{
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var refreshIntentLauncher: ActivityResultLauncher<Intent>
     private lateinit var binding: ActivityMainBinding
     lateinit var app: MainApp
@@ -32,67 +34,80 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
+
+
         app = application as MainApp
-        loadFlowers()
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        val layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = layoutManager
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        binding.recyclerView.adapter = FlowerAdapter(app.flowers.findAll(),this)
+
+
+        binding.buttonFirst.setOnClickListener() {
+            val launcherIntent = Intent(this, FlowerSActivity::class.java)
+            startActivityForResult(launcherIntent,0)
+
+
         }
-    }
 
-    override fun onFlowerClick(flower: FlowerModel) {
-        val launcherIntent = Intent(this, FlowerSFragment::class.java)
-        launcherIntent.putExtra("flower_edit", flower)
-        refreshIntentLauncher.launch(launcherIntent)
-    }
+            binding.fab.setOnClickListener { view ->
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.item_add -> {
-                val launcherIntent = Intent(this, FlowerSFragment::class.java)
-                refreshIntentLauncher.launch(launcherIntent)
+
+
+                loadFlowers()
+                registerRefreshCallback()
             }
+
+    }
+
+
+        override fun onFlowerClick(flower: FlowerModel) {
+            val launcherIntent = Intent(this, FlowerSActivity::class.java)
+            launcherIntent.putExtra("flower_edit", flower)
+            startActivityForResult(launcherIntent,0)
+        //    refreshIntentLauncher.launch(launcherIntent)
         }
-        //   R.id.action_settings -> true
-        return super.onOptionsItemSelected(item)
+
+        override fun onCreateOptionsMenu(menu: Menu): Boolean {
+            // Inflate the menu; this adds items to the action bar if it is present.
+            menuInflater.inflate(R.menu.menu_main, menu)
+            return super.onCreateOptionsMenu(menu)
+        }
+
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.item_add -> {
+                    val launcherIntent = Intent(this, FlowerSActivity::class.java)
+                 //   startActivityForResult(launcherIntent,0)
+                    refreshIntentLauncher.launch(launcherIntent)
+                }
+            }
+            return super.onOptionsItemSelected(item)
+        }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        binding.recyclerView.adapter?.notifyDataSetChanged()
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        private fun registerRefreshCallback() {
+            refreshIntentLauncher =
+                registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+                { loadFlowers() }
+        }
+
+        private fun loadFlowers() {
+            showFlowers(app.flowers.findAll())
+        }
+
+        fun showFlowers(flowers: List<FlowerModel>) {
+            binding.recyclerView.adapter = FlowerAdapter(flowers, this)
+            binding.recyclerView.adapter?.notifyDataSetChanged()
+        }
     }
-
-
-
-    private fun registerRefreshCallback() {
-        refreshIntentLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { loadFlowers() }
-    }
-
-    private fun loadFlowers(){
-        showFlowers(app.flowers.findAll())
-    }
-
-    fun showFlowers(flowers: List<FlowerModel>){
-     //   binding.recyclerView.adapter = FlowerAdapter(flowers, this)
-     //   binding.recyclerView.adapter?.notifyDataSetChanged()
-    }
-}
 

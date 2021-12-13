@@ -5,7 +5,7 @@ import ie.wit.mob2_pb.models.FlowerJSONStore
 import ie.wit.mob2_pb.models.FlowerStore
 import timber.log.Timber
 
-class MainApp: Application() {
+class MainApp(): Application() {
 
     lateinit var flowers: FlowerStore
 
