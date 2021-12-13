@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/mainActivity">
 
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="ie.wit.mob2_pb.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="ie.wit.mob2_pb.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="ie.wit.mob2_pb.activities.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" >
+    <action
+        android:id="@+id/action_mainActivity_to_flowerActivity"
+        app:destination="@id/flowerActivity" />
+</activity>
+    <activity
+        android:id="@+id/flowerActivity"
+        android:name="ie.wit.mob2_pb.activities.FlowerSActivity"
+        android:label="flower_activity"
+        tools:layout="@layout/flower_activity" >
+    <action
+        android:id="@+id/action_flowerActivity_to_mainActivity"
+        app:destination="@id/mainActivity" />
+    </activity>
 </navigation>

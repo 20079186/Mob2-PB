@@ -1,12 +1,40 @@
 <resources>
-    <string name="app_name">Mob2-PB</string>
+    <string name="app_name">Próca Bláthanna</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="user_home">User Home</string>
+    <string name="add_flower">Add Flower</string>
+    <string name="home_page">home_page</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Flower Page -->
+    <string name="button_add_flower">Add Flower</string>
+    <string name="next">Next</string>
+    <string name="button_add_new_flower">Add New Flower</string>
+
+    <string name="add_flower_name">Name</string>
+    <string name="prompt_add_flower_name">Name</string>
+    <string name="add_flower_family">Flower Family</string>
+    <string name="prompt_add_flower_family">Flower Family</string>
+    <string name="add_flower_season">Season</string>
+    <string name="prompt_add_flower_season">Season</string>
+    <string name="add_flower_description">Description</string>
+    <string name="prompt_add_flower_description">Description</string>
+    <string name="add_flower_care">How to Care for</string>
+    <string name="prompt_add_flower_care">How to Care for</string>
+    <string name="button_add_flower_photo">Add Photo of Flower</string>
+    <string name="menu_add_flower">Add</string>
+    <string name="menu_clear_flower">Clear</string>
+    <string name="menu_delete_flower">Delete</string>
+    <string name="menu_cancel_flower">Cancel</string>
+    <string name="pick_flower_image">Select flower image</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="change_flower_image">"Change flower Image"</string>
 </resources>

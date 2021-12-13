@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "232213664234",
+    "project_id": "mob2-pb",
+    "storage_bucket": "mob2-pb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232213664234:android:d510184993cd7f4484a293",
+        "android_client_info": {
+          "package_name": "ie.wit.mob2_pb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232213664234-sbcg5foovj4tjikh72d0q295nf2ju49i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqmg-hcHbZ957oXgzucmXleQL5ofn56Ck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232213664234-sbcg5foovj4tjikh72d0q295nf2ju49i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
