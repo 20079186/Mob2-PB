@@ -11,9 +11,9 @@
     <application
         android:name=".main.MainApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/flowers"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/flowers"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mob2PB">
         <activity
@@ -29,8 +29,14 @@
 
         <activity
             android:name=".activities.SettingsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_settings" />
+            android:exported="true"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".activities.MainActivity">
+
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activities.MainActivity"/>
+        </activity>
         <activity
             android:name=".activities.FlowerSActivity"
             android:exported="true" />
