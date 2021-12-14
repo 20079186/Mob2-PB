@@ -37,7 +37,7 @@ class FlowerAdapter constructor(
 
         fun bind(flower: FlowerModel, listener: FlowerListener) {
             binding.flowerTitle.text = flower.name
-            binding.season.text = flower.season
+           // binding.season.text = flower.season
             Picasso.get().load(flower.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onFlowerClick(flower) }
         }
