@@ -15,7 +15,7 @@ private lateinit var binding: ForgotPasswordActivityBinding
 class ForgotPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_forgot_password)
+        setContentView(R.layout.forgot_password_activity)
 
         binding = ForgotPasswordActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
