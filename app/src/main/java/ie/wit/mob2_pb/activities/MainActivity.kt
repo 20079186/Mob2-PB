@@ -2,7 +2,6 @@ package ie.wit.mob2_pb.activities
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 
 import android.view.Menu
@@ -14,8 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import ie.wit.mob2_pb.R
+import ie.wit.mob2_pb.activities.login.LoginActivity
 import ie.wit.mob2_pb.databinding.ActivityMainBinding
 import ie.wit.mob2_pb.main.MainApp
 import ie.wit.mob2_pb.models.FlowerModel
@@ -59,15 +60,7 @@ class MainActivity : AppCompatActivity(), FlowerListener{
 //        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
 //        navView.setupWithNavController(navController)
-
-
-
-        binding.buttonFirst.setOnClickListener() {
-            val launcherIntent = Intent(this, FlowerSActivity::class.java)
-            startActivityForResult(launcherIntent,0)
-
-
-        }
+//        }
                 loadFlowers()
                 registerRefreshCallback()
             }
@@ -99,6 +92,12 @@ class MainActivity : AppCompatActivity(), FlowerListener{
                 R.id.action_settings ->{
                     val launcherIntent = Intent(this, SettingsActivity::class.java)
                     refreshIntentLauncher.launch(launcherIntent)
+                }
+
+                R.id.action_logout -> {
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
                 }
             }
             return super.onOptionsItemSelected(item)
