@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import ie.wit.mob2_pb.activities.data.LoginRepository
-import ie.wit.mob2_pb.activities.data.Result
+import ie.wit.mob2_pb.activities.ui.login.data.LoginRepository
+import ie.wit.mob2_pb.activities.ui.login.data.Result
 
 import ie.wit.mob2_pb.R
 

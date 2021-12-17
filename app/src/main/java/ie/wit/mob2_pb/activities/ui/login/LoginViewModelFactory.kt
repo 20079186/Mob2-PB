@@ -2,8 +2,8 @@ package ie.wit.mob2_pb.activities.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ie.wit.mob2_pb.activities.data.LoginDataSource
-import ie.wit.mob2_pb.activities.data.LoginRepository
+import ie.wit.mob2_pb.activities.ui.login.data.LoginDataSource
+import ie.wit.mob2_pb.activities.ui.login.data.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

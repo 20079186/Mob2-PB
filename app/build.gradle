@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'com.google.gms.google-services'
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 
 }
 
@@ -78,6 +79,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-installations:17.0.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+//    implementation 'com.google.firebase:firebase-storage'
+//    implementation 'com.firebaseui:firebase-ui-storage'
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
 
 
