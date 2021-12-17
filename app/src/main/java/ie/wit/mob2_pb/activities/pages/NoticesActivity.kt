@@ -1,4 +1,4 @@
-package ie.wit.mob2_pb.activities
+package ie.wit.mob2_pb.activities.pages
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

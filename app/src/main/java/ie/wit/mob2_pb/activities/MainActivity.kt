@@ -8,14 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
@@ -23,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import ie.wit.mob2_pb.R
 import ie.wit.mob2_pb.activities.login.LoginActivity
+import ie.wit.mob2_pb.activities.pages.*
 import ie.wit.mob2_pb.databinding.ActivityMainBinding
 import ie.wit.mob2_pb.main.MainApp
 import ie.wit.mob2_pb.models.FlowerModel
