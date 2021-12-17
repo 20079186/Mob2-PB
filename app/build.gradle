@@ -58,7 +58,7 @@ dependencies {
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.30'
     implementation 'androidx.preference:preference-ktx:1.1.1'
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+
     //implementation 'com.google.firebase:firebase-storage-ktx:20.0.0'
 
 
@@ -77,6 +77,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx:20.0.1'
     implementation 'com.google.firebase:firebase-installations:17.0.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
 
 

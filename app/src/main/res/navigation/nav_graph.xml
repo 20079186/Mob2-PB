@@ -26,7 +26,7 @@
     </activity>
 <!--    <activity-->
 <!--        android:id="@+id/loginActivity"-->
-<!--        android:name="ie.wit.mob2_pb.activities.ui.login.LoginActivity"-->
+<!--        android:name="ie.wit.mob2_pb.activities.login.LoginActivity"-->
 <!--        android:label="activity_login"-->
 <!--        tools:layout="@layout/activity_login" >-->
 <!--    <action-->
