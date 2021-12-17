@@ -7,4 +7,5 @@ interface FlowerStore {
     fun create(flower: FlowerModel)
     fun update(flower: FlowerModel)
     fun delete(flower: FlowerModel)
+    fun searchFlower(search: String): List<FlowerModel>
 }

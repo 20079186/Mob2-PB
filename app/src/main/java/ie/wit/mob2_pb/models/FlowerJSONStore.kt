@@ -7,6 +7,7 @@ import ie.wit.mob2_pb.helpers.*
 import timber.log.Timber
 import java.lang.reflect.Type
 import java.util.*
+import kotlin.collections.ArrayList
 
 val JSON_FILE = "flowers.json"
 val gsonBuilder: Gson = GsonBuilder().setPrettyPrinting().registerTypeAdapter(Uri::class.java, FlowerJSONStore.UriParser()).create()
@@ -41,6 +42,23 @@ class FlowerJSONStore(private val context: Context) : FlowerStore {
     override fun findF(id: Long): FlowerModel? {
         var foundFlower: FlowerModel? = flowers.find { p -> p.id == id }
         return foundFlower
+    }
+
+    override fun searchFlower(search: String): List<FlowerModel> {
+        val sList= ArrayList<FlowerModel>()
+        flowers.forEach { flower ->
+            try {
+                if (
+                            (flower.name.lowercase()).contains(search.lowercase()) ||
+                        (flower.family.lowercase()).contains(search.lowercase())||
+                        (flower.season.lowercase()).contains(search.lowercase())
+                ) {
+                    sList.add(flower)
+                }
+            } catch (e: Exception) {
+            }
+        }
+        return sList
     }
 
     override fun update(flower: FlowerModel) {

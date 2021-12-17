@@ -50,6 +50,21 @@ class FlowerMStore: FlowerStore {
     private fun logAll() {
         flowers.forEach { i("$it") }
     }
-
+    override fun searchFlower(search: String): List<FlowerModel> {
+        val sList= ArrayList<FlowerModel>()
+        flowers.forEach { flower ->
+            try {
+                if (
+                    (flower.name.lowercase()).contains(search.lowercase()) ||
+                    (flower.family.lowercase()).contains(search.lowercase())||
+                    (flower.season.lowercase()).contains(search.lowercase())
+                ) {
+                    sList.add(flower)
+                }
+            } catch (e: Exception) {
+            }
+        }
+        return sList
+    }
 
 }
