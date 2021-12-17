@@ -5,6 +5,7 @@
     <string name="action_app_about">About</string>
     <string name="action_settings">Settings</string>
     <string name="action_send_feedback">Send Feedback</string>
+    <string name="action_search">Search</string>
 
     <!-- NavBar -->
 
@@ -62,6 +63,11 @@
     <string name="register_action_sign_in_short">Sign in</string>
     <string name="email_id">Email ID</string>
     <string name="submit_email_id">Submit</string>
+    <string name="register_here">Register </string>
+
+    <string name="feedback_page">Send us some feedback! </string>
+    <string name="about_us">We are a small ands simple app that allows users to house their favourite flowers(and plants) in one place. You can keep track of how to take care of them and in what season so they will never wilt on you. This app has been made for a college project.</string>
+    <string name="fake_contact">If you want to contact us please send and email to "WeDontCareDontSendUsEmails@dontbother.ie" or contact us on +353 (0) 1 618 3000  </string>
 
     <!-- Preference Titles -->
     <string name="settings_header">General</string>
@@ -86,52 +92,13 @@
     <string name="theme_dark_on">To switch the appearance of the app to Dark theme, please navigate to Settings on your device > Accessibility > Display > Turn on Dark Theme </string>
     <!--    <string name="theme_dark_on">Switch the appearance of the app to Light from Dark theme</string>-->
 
-
-    <!-- Firebase Login -->
-    <string name="launch_title">Please Login</string>
-    <string name="sign_in_start">Start</string>
-    <string name="sign_in_silent">Sign in silently</string>
-    <string name="providers_header">Auth providers</string>
-    <string name="providers_google">Google</string>
-    <string name="providers_email">Email</string>
-    <string name="providers_email_link">Email link</string>
-    <string name="providers_phone">Phone</string>
-    <string name="providers_github">GitHub</string>
-    <string name="providers_microsoft">Microsoft</string>
-    <string name="providers_anonymous">Anonymous</string>
-    <string name="layout_header">Layout</string>
-    <string name="layout_default">Default</string>
-    <string name="layout_custom">Custom</string>
-
-    <string name="theme_header">Theme</string>
-    <string name="theme_default">Material Light Theme</string>
-    <string name="theme_app">App Theme</string>
-    <string name="theme_green">Green Theme</string>
-
-    <string name="logo_header">Logo</string>
-    <string name="logo_firebase">Firebase Auth</string>
-    <string name="logo_google">Google</string>
-    <string name="logo_none">None</string>
-
-    <string name="tos_pp_header">Terms of Service and Privacy Policy</string>
-    <string name="tos_pp_google">Google</string>
-    <string name="tos_pp_firebase">Firebase</string>
-    <string name="tos_pp_none">None</string>
-
-    <string name="google_scopes_header">Example extra Google scopes</string>
-    <string name="google_scope_drive_file">Drive File</string>
-    <string name="google_scope_youtube_data">Youtube data</string>
-
-    <string name="facebook_permissions_header">Example extra Facebook permissions</string>
-    <string name="facebook_permission_friends">Friends</string>
-    <string name="facebook_permission_photos">Photos</string>
-
-    <string name="options_header">Other Options</string>
-    <string name="options_enable_credential_selector">Enable Smart Lock\'s credential selector</string>
-    <string name="options_enable_hint_selector">Enable Smart Lock\'s hint selector</string>
-    <string name="options_allow_new_email_acccount">Allow new account creation</string>
-    <string name="options_require_name">Require first/last name with email accounts.</string>
-    <string name="options_use_auth_emulator">Connect to auth emulator (localhost:9099).</string>
-    <string name="register_here">Register Here</string>
+    <string name="card_1">We are LIVE!!🥳 Please go ahead and register your account with us, and start adding and collecting your favourite flowers today!🙌🏼❤‍🔥  </string>
+    <string name="card_2">We are new so please be patient while we fix any hiccups that you may come across, please do not hesitate to fill out the feedback form.</string>
+    <string name="card_3">Do not forget to add the seasons to your flowers so you can find these later on!🌥 🌦 ❄ ☀️ </string>
+    <string name="card_5">If you need to change or have forgotten your password, follow the link on the LOGIN page and we will get you fixed up</string>
+    <string name="card_4">Most importantly, ENJOY!💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 </string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>

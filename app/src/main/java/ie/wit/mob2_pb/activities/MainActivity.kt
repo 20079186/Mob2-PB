@@ -8,8 +8,14 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
@@ -23,7 +29,7 @@ import ie.wit.mob2_pb.models.FlowerModel
 import ie.wit.mob2_pb.adapters.*
 
 
-class MainActivity : AppCompatActivity(), FlowerListener{
+class MainActivity : AppCompatActivity(), FlowerListener {
 
     private lateinit var refreshIntentLauncher: ActivityResultLauncher<Intent>
     private lateinit var analytics: FirebaseAnalytics
@@ -45,9 +51,17 @@ class MainActivity : AppCompatActivity(), FlowerListener{
 
         app = application as MainApp
 
+//        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.nav_view)
+//        val navController = findNavController(R.id.nav_)
+
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = FlowerAdapter(app.flowers.findAll(),this)
+        binding.recyclerView.adapter = FlowerAdapter(app.flowers.findAll(), this)
+
+
+        loadFlowers()
+        registerRefreshCallback()
+    }
 
 
 //        val navView: BottomNavigationView = binding.navView
@@ -55,15 +69,13 @@ class MainActivity : AppCompatActivity(), FlowerListener{
 //        val navController = findNavController(R.id.recyclerView)
 //        val appBarConfiguration = AppBarConfiguration(
 //            setOf(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notices
 //            )
 //        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
 //        navView.setupWithNavController(navController)
-//        }
-                loadFlowers()
-                registerRefreshCallback()
-            }
+//
+//
 
 
         override fun onFlowerClick(flower: FlowerModel) {
@@ -80,6 +92,8 @@ class MainActivity : AppCompatActivity(), FlowerListener{
             // Inflate the menu; this adds items to the action bar if it is present.
             menuInflater.inflate(R.menu.menu_main, menu)
             return super.onCreateOptionsMenu(menu)
+
+
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -99,7 +113,31 @@ class MainActivity : AppCompatActivity(), FlowerListener{
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
-            }
+
+                R.id.app_about -> {
+                    val launcherIntent = Intent(this, AboutActivity::class.java)
+                    refreshIntentLauncher.launch(launcherIntent)
+                }
+
+                R.id.send_feedback -> {
+                    val launcherIntent = Intent(this, FeedbackActivity::class.java)
+                    refreshIntentLauncher.launch(launcherIntent)
+                }
+
+                R.id.navigation_notices -> {
+                    val launcherIntent = Intent(this, NoticesActivity::class.java)
+                    refreshIntentLauncher.launch(launcherIntent)
+                }
+                R.id.navigation_home -> {
+                    val launcherIntent = Intent(this, MainActivity::class.java)
+                    refreshIntentLauncher.launch(launcherIntent)
+                }
+                R.id.navigation_dashboard -> {
+                    val launcherIntent = Intent(this, DashboardActivity::class.java)
+                    refreshIntentLauncher.launch(launcherIntent)
+                }
+
+                }
             return super.onOptionsItemSelected(item)
         }
 
