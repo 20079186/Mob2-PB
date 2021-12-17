@@ -1,6 +1,7 @@
 package ie.wit.mob2_pb.activities.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -12,14 +13,24 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import ie.wit.mob2_pb.databinding.ActivityLoginBinding
 
 import ie.wit.mob2_pb.R
+import ie.wit.mob2_pb.activities.FlowerSActivity
+import ie.wit.mob2_pb.activities.MainActivity
+import ie.wit.mob2_pb.models.FlowerModel
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var refreshIntentLauncher: ActivityResultLauncher<Intent>
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var auth: FirebaseAuth;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        auth = Firebase.auth
         val username = binding.username
         val password = binding.password
         val login = binding.login
@@ -57,13 +69,16 @@ class LoginActivity : AppCompatActivity() {
                 showLoginFailed(loginResult.error)
             }
             if (loginResult.success != null) {
-                updateUiWithUser(loginResult.success)
+                val launcherIntent = Intent(this, MainActivity::class.java)
+                  startActivityForResult(launcherIntent,0)
+                //refreshIntentLauncher.launch(launcherIntent)
             }
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
             finish()
         })
+
 
         username.afterTextChanged {
             loginViewModel.loginDataChanged(
@@ -113,7 +128,6 @@ class LoginActivity : AppCompatActivity() {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
 }
-
 /**
  * Extension function to simplify setting an afterTextChanged action to EditText components.
  */

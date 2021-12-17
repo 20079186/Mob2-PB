@@ -79,4 +79,51 @@
     <string name="theme_dark_on">To switch the appearance of the app to Dark theme, please navigate to Settings on your device > Accessibility > Display > Turn on Dark Theme </string>
 <!--    <string name="theme_dark_on">Switch the appearance of the app to Light from Dark theme</string>-->
 
+
+    <!-- Firebase Login -->
+    <string name="launch_title">Please Login</string>
+    <string name="sign_in_start">Start</string>
+    <string name="sign_in_silent">Sign in silently</string>
+    <string name="providers_header">Auth providers</string>
+    <string name="providers_google">Google</string>
+    <string name="providers_email">Email</string>
+    <string name="providers_email_link">Email link</string>
+    <string name="providers_phone">Phone</string>
+    <string name="providers_github">GitHub</string>
+    <string name="providers_microsoft">Microsoft</string>
+    <string name="providers_anonymous">Anonymous</string>
+    <string name="layout_header">Layout</string>
+    <string name="layout_default">Default</string>
+    <string name="layout_custom">Custom</string>
+
+    <string name="theme_header">Theme</string>
+    <string name="theme_default">Material Light Theme</string>
+    <string name="theme_app">App Theme</string>
+    <string name="theme_green">Green Theme</string>
+
+    <string name="logo_header">Logo</string>
+    <string name="logo_firebase">Firebase Auth</string>
+    <string name="logo_google">Google</string>
+    <string name="logo_none">None</string>
+
+    <string name="tos_pp_header">Terms of Service and Privacy Policy</string>
+    <string name="tos_pp_google">Google</string>
+    <string name="tos_pp_firebase">Firebase</string>
+    <string name="tos_pp_none">None</string>
+
+    <string name="google_scopes_header">Example extra Google scopes</string>
+    <string name="google_scope_drive_file">Drive File</string>
+    <string name="google_scope_youtube_data">Youtube data</string>
+
+    <string name="facebook_permissions_header">Example extra Facebook permissions</string>
+    <string name="facebook_permission_friends">Friends</string>
+    <string name="facebook_permission_photos">Photos</string>
+
+    <string name="options_header">Other Options</string>
+    <string name="options_enable_credential_selector">Enable Smart Lock\'s credential selector</string>
+    <string name="options_enable_hint_selector">Enable Smart Lock\'s hint selector</string>
+    <string name="options_allow_new_email_acccount">Allow new account creation</string>
+    <string name="options_require_name">Require first/last name with email accounts.</string>
+    <string name="options_use_auth_emulator">Connect to auth emulator (localhost:9099).</string>
+
 </resources>

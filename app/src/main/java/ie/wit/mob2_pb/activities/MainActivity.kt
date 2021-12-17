@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity(), FlowerListener{
 //        navView.setupWithNavController(navController)
 
 
-
-        binding.buttonFirst.setOnClickListener() {
-            val launcherIntent = Intent(this, FlowerSActivity::class.java)
-            startActivityForResult(launcherIntent,0)
-
-
-        }
+//
+//        binding.buttonFirst.setOnClickListener() {
+//            val launcherIntent = Intent(this, FlowerSActivity::class.java)
+//            startActivityForResult(launcherIntent,0)
+//
+//
+//        }
                 loadFlowers()
                 registerRefreshCallback()
             }
