@@ -17,10 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mob2PB">
         <activity
-            android:name=".activities.DashboardActivity"
+            android:name=".activities.pages.DashboardActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AboutActivity"
+            android:name=".activities.pages.AboutActivity"
             android:exported="false" >
             android:label="About"
             android:parentActivityName=".activities.MainActivity">
@@ -29,7 +29,7 @@
                 android:value=".activities.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.FeedbackActivity"
+            android:name=".activities.pages.FeedbackActivity"
             android:exported="false"
             android:label="Send Feedback">
             <meta-data
@@ -54,7 +54,7 @@
             android:exported="true"
             android:label="@string/app_name" />
         <activity
-            android:name=".activities.NoticesActivity"
+            android:name=".activities.pages.NoticesActivity"
             android:exported="true"
             android:label="@string/app_name" />
         <activity
@@ -62,7 +62,7 @@
             android:exported="true"
             android:label="@string/app_name" />
         <activity
-            android:name=".activities.SettingsActivity"
+            android:name=".activities.pages.SettingsActivity"
             android:exported="true"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".activities.MainActivity">
